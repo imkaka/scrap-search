@@ -5,6 +5,7 @@ It is built while learning elasticsearch basics.
 
 ### Setup and Run
 * Install dependencies from pip.
+    * `pip install -r requirements.txt`
 * `fetch_recipies.py` is the main script.
 * `python fetch_recipies.py fetch` will scrap saldas data and put it in ES.
 * `python fetch_recipies.py search` will give the search res against the query defined in `fetch_recipies.py`
