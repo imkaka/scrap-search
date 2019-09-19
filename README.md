@@ -10,4 +10,4 @@ It is built while learning elasticsearch basics.
 
 #### Note:
 * You can customize every script accordingly.
-* we can run `scrap_data.py` seperately just to scrap salads and print, It is *independent*.
+* we can run `scrap_data.py` seperately just to scrap salads and print, It is **independent**.
