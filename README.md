@@ -4,6 +4,7 @@ An example program that scrapes data from AllRecipes.com and store in Elasticsea
 It is built while learning elasticsearch basics.
 
 ### Setup and Run
+* Install dependencies from pip.
 * `fetch_recipies.py` is the main script.
 * `python fetch_recipies.py fetch` will scrap saldas data and put it in ES.
 * `python fetch_recipies.py search` will give the search res against the query defined in `fetch_recipies.py`
