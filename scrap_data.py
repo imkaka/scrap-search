@@ -59,22 +59,30 @@ def parse(u_url, headers):
     finally:
         return json.dumps(rec)
 
+def parse_website(url, headers):
+    r = requests.get(url, headers=headers)
+    links = None
+    if r.status_code == 200:
+        html = r.text
+        soup = BeautifulSoup(html, 'lxml')
+        links = soup.select('.fixed-recipe-card__h3 a')
+    return links
+
 def main():
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36',
         'Pragma': 'no-cache'
     }
     url = 'https://www.allrecipes.com/recipes/96/salad/'
-    r = requests.get(url, headers=headers)
-    if r.status_code == 200:
-        html = r.text
-        soup = BeautifulSoup(html, 'lxml')
-        links = soup.select('.fixed-recipe-card__h3 a')
+    links = parse_website(url, headers)
+    if links:
         for link in links:
             sleep(2)
             result = parse(link['href'], headers)
             print(result)
             print('===========================================')
+
+
 
 
 if __name__ == "__main__":
